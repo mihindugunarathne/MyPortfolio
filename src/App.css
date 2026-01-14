@@ -1,0 +1,59 @@
+/* Root layout */
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top left, #1f2933 0, #020617 40%, #000 100%);
+  color: #e5e7eb;
+}
+
+/* Shared Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.7rem;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #f9fafb;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.55);
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 55px rgba(37, 99, 235, 0.8);
+}
+
+.btn-primary .material-symbols-outlined {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+  }
+
+.btn-primary:hover .material-symbols-outlined {
+  transform: translateX(3px);
+  }
+
+.btn-secondary {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(51, 65, 85, 0.9);
+  color: #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.9);
+  transform: translateY(-1px);
+}
