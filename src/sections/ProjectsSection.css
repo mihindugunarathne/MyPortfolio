@@ -52,32 +52,58 @@
   padding: 0 1rem 3rem;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+}
+
+.projects-scroll-container {
+  width: 100%;
+  max-width: 1400px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.projects-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  width: max-content;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   height: 100%;
   border-radius: 0.75rem;
   background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), #020617 65%);
   border: 1px solid rgba(45, 55, 72, 0.9);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  cursor: pointer;
+  /* All cards same size by default */
+  transform: scale(1);
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+.project-card:hover,
+.project-card:active {
+  transform: scale(1.05);
   border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.3);
 }
 
 .project-image-wrapper {
@@ -254,14 +280,40 @@
   transform: translateX(4px);
 }
 
+/* Mobile: 1 card visible */
+.project-card {
+  width: calc(100vw - 3rem);
+  min-width: calc(100vw - 3rem);
+}
+
+/* Tablet: 2 cards visible */
 @media (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .project-card {
+    width: calc((100vw - 4rem) / 2 - 0.75rem);
+    min-width: calc((100vw - 4rem) / 2 - 0.75rem);
   }
 }
 
+/* Desktop: 3 cards visible */
 @media (min-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .projects-container {
+    padding: 0 2rem 3rem;
+  }
+
+  .project-card {
+    width: calc((100vw - 8rem) / 3 - 1rem);
+    min-width: calc((100vw - 8rem) / 3 - 1rem);
+    max-width: 420px;
+  }
+
+  .projects-scroll-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .project-card {
+    width: 400px;
+    min-width: 400px;
   }
 }

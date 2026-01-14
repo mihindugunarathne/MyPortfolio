@@ -27,7 +27,7 @@ function AboutSection() {
               </p>
               <p>
               My journey began with basic web development and scripting, and gradually evolved into building complete full-stack applications using the MERN stack and Spring Boot. 
-              I’ve worked on real-world projects such as service-booking platforms, promotion management systems, and automation tools, and I’m always learning new technologies to improve my skills and write better, maintainable code..
+              I’ve worked on real-world projects such as service-booking platforms, promotion management systems, and automation tools, and I’m always learning new technologies to improve my skills and write better, maintainable code.
               </p>
             </div>
 
